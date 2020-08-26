@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+     <script src="jspsych-6/jspsych.js"></script>
+     <script src="jspsych-6/plugins/jspsych-html-keyboard-response.js"></script>
+     <script src="jspsych-6/plugins/jspsych-image-audio-response_new.js"></script>
+     <script src="jspsych-6/plugins/jspsych-call-function.js"></script>
+     <script src="jspsych-6/plugins/jspsych-fullscreen.js"></script>
+     <link rel="stylesheet" href="jspsych-6/css/jspsych.css"></link>
+     <style>
+         img {
+             width: 300px;
+         }
+     </style>
+ </head>
+ <body>
+ </body>
+ <script>
+
+  // Define variable with images to preload
+  var images = ['img/F.png' , 'img/animals.png']; 
+
+  // Make participant's browser fullscreen
+  var fullscreen = {
+    type: 'fullscreen',
+    fullscreen_mode: true
+  }
+
+    // define welcome/letter trial message 
+    var instructions_letter = {
+      type: "html-keyboard-response",
+      stimulus: "<p><strong>Verbal Fluency Task</strong></p><p>In this task, you will be given a <strong>letter</strong> of the alphabet.</p><p>Your job is to come up with <strong>as many words as you can think of</strong> in 1 minute that begin with that letter.<br>For instance, if you were given the letter 'c' valid answers could include 'cat,' 'calm,' calculate' etc.</p><p>You may only use each word once. You are not allowed to use proper nouns like names of people or places.<br>In addition, words that have the same root (e.g., 'random,' 'randomize' etc.) may only be used once.</p><p>When you proceed to the next screen, you will be shown a letter and may begin speaking out loud, as your computer will record your voice.<br>When 1 minute is up, the screen will end.</p><p><strong>Please speak loud and clear.</strong></p><p>Press the '<strong>s</strong>' key when you are ready to begin.</p>" ,
+      choices: ['s'] 
+    };
+
+    // define category trial message 
+    var instructions_category = {
+      type: "html-keyboard-response",
+      stimulus: "<p><strong>Verbal Fluency Task</strong></p><p>Great job! In the second part of this task, you will be given a <strong>category</strong>.</p><p>Your job is to come up with <strong>as many items as you can think of</strong> that fall into that category within 1 minute.<br>For instance, if you were given the category 'food' valid answers could include 'pizza,' 'banana,' chocolate' etc. </p><p>You may only use each item once, and they may begin with any letter.</p><p>When you proceed to the next screen, you will be shown a category and may begin speaking out loud, as your computer will record your voice.<br>When 1 minute is up, the screen will end.</p><p><strong>Please speak loud and clear.</strong></p><p>Press the '<strong>q</strong>' key when you are ready to begin.</p>" ,
+      choices: ['q'] 
+    };
+
+    // Define letter trial
+    var letter_trial = {
+        type: "image-audio-response_new" ,
+        stimulus: 'img/F.png' ,
+        buffer_length: 60000 ,
+        allow_playback: false ,
+        prompt: "<p><strong>Recording</strong>: speak now</p>" ,
+        wait_for_mic_approval: true 
+    }
+
+     // Define category trial
+     var category_trial = {
+        type: "image-audio-response_new" ,
+        stimulus: "img/animals.png" ,
+        buffer_length: 60000 ,
+        allow_playback: false ,
+        prompt: "<p><strong>Recording</strong>: speak now</p>" ,
+        wait_for_mic_approval: true 
+     }
+
+
+        jsPsych.init({
+            timeline: [fullscreen, instructions_letter, letter_trial, instructions_category, category_trial],
+            preload_images: images
+               
+                /* This commented out section will create audio player after experiment ends to listen to audio files (good for testing)
+                const data_letter = jsPsych.data.get().filter({trial_index: 1}).values();
+                // Map data to appropriately formatted blob
+                const blob_letter = new Blob(data_letter[0].audio_data, { type: 'audio/webm' });
+                // Encode blob as a URL for the player
+                let url_letter = (URL.createObjectURL(blob_letter));
+                // Create the player
+                let player_letter = document.getElementById('jspsych-content')
+                    .appendChild(document.createElement('audio'));
+                player_letter.id = 'jspsych-image-audio-response-audio';
+                player_letter.src = url_letter;
+                player_letter.controls = true;
+                // fetch data from inside jsPsych for category_trial
+                const data_category = jsPsych.data.get().filter({trial_index: 3}).values();
+                // Map data to appropriately formatted blob
+                const blob_category = new Blob(data_category[0].audio_data, { type: 'audio/webm' });
+                // Encode blob as a URL for the player
+                let url_category = (URL.createObjectURL(blob_category));
+                // Create the player
+                let player_category = document.getElementById('jspsych-content')
+                    .appendChild(document.createElement('audio'));
+                player_category.id = 'jspsych-image-audio-response-audio';
+                player_category.src = url_category;
+                player_category.controls = true; */
+            });
+ </script>
+ </html> 
