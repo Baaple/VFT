@@ -1,0 +1,104 @@
+.jspsych-content-wrapper {
+    width:80%;
+} 
+    
+.digit-span-text {
+    text-align:center;
+    font-size: 80px;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+/* style for visual digit span */
+/*.digit-span-img {
+    text-align:center;
+    position: relative;
+}*/
+
+/* style for number pad responses */
+/*.square {
+    float:left;
+    position: relative;
+    width: 30%;
+    height: 30%; 
+    margin:1.66%;
+    background-color:#D3D3D3;
+    overflow:hidden;
+    color: black;
+    border-radius:5px;
+    border-color: black;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+}*/
+
+/*.submit_button, .clear_button {
+    float:left;
+    position: relative;
+    width: 47%;
+    height: 30%; 
+    margin:1.5%;
+    background-color:#D3D3D3;
+    overflow:hidden;
+    color: black;
+    border-radius:5px;
+    border-color: black;
+    font-size: 18px;
+    font-weight:10;
+}*/
+
+/*.square:hover, .submit_button:hover, .clear_button:hover {
+    background-color: #A8A8A8;
+    color: black;
+}*/
+
+/*.square:active, .submit_button:active, .clear_button:active {
+    background-color: black;
+    color: white;
+}*/
+
+/*.numbers {
+    font-weight:10;
+    text-align: center;
+    font-size: 50px;
+    position: relative;
+    top: 50%; 
+}*/
+
+/*.numbox {
+  width:30vw;
+  height: 30vw;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-right:-50%;
+  transform: translate(-50%,-50%);
+}*/
+
+.feedback-text {
+    font-size:50px;
+}
+
+/* text response box */
+input[type="text"], textarea {
+    font-size: 26px !important; 
+    padding: 8px 8px; 
+    text-align: center;
+}
+
+/* navigation buttons */
+button#jspsych-instructions-next, button#jspsych-instructions-back, button.jspsych-btn, input[type='submit'].jspsych-survey-html-form {
+    color: black;
+    border: 2px solid black;
+    background: #EEE;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+button#jspsych-instructions-next:active, button#jspsych-instructions-back:active, button.jspsych-btn:active, input[type='submit'].jspsych-survey-html-form:active {
+    background-color: black;
+    color: white;
+}
