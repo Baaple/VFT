@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+     <script src="jspsych-6/jspsych.js"></script>
+     <script src="jspsych-6/plugins/jspsych-html-keyboard-response.js"></script>
+     <script src="jspsych-6/plugins/jspsych-image-audio-response_new.js"></script>
+     <script src="jspsych-6/plugins/jspsych-call-function.js"></script>
+     <script src="jspsych-6/plugins/jspsych-fullscreen.js"></script>
+	 <script src="VFT-task-main.js"></script> 
+     <link rel="stylesheet" href="jspsych-6/css/jspsych.css"></link>
+     <style>
+         img {
+             width: 300px;
+         }
+     </style>
+ </head>
+ <body>
+ </body>
+ <script>
+
+        jsPsych.init({
+            timeline: [fullscreen, instructions_letter, letter_trial, instructions_category, category_trial],
+            preload_images: images
+               
+                /* This commented out section will create audio player after experiment ends to listen to audio files (good for testing)
+                const data_letter = jsPsych.data.get().filter({trial_index: 1}).values();
+                // Map data to appropriately formatted blob
+                const blob_letter = new Blob(data_letter[0].audio_data, { type: 'audio/webm' });
+                // Encode blob as a URL for the player
+                let url_letter = (URL.createObjectURL(blob_letter));
+                // Create the player
+                let player_letter = document.getElementById('jspsych-content')
+                    .appendChild(document.createElement('audio'));
+                player_letter.id = 'jspsych-image-audio-response-audio';
+                player_letter.src = url_letter;
+                player_letter.controls = true;
+
+                // fetch data from inside jsPsych for category_trial
+                const data_category = jsPsych.data.get().filter({trial_index: 3}).values();
+                // Map data to appropriately formatted blob
+                const blob_category = new Blob(data_category[0].audio_data, { type: 'audio/webm' });
+                // Encode blob as a URL for the player
+                let url_category = (URL.createObjectURL(blob_category));
+                // Create the player
+                let player_category = document.getElementById('jspsych-content')
+                    .appendChild(document.createElement('audio'));
+                player_category.id = 'jspsych-image-audio-response-audio';
+                player_category.src = url_category;
+                player_category.controls = true; */
+            });
+ </script>
+ </html> 
